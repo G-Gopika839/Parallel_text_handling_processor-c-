@@ -1,39 +1,58 @@
-# Python Parallel Text Handling Processor
+Parallel Text Processing Dashboard
+ Overview
 
-## Overview
-This project implements a weighted rule-based sentiment analysis system for processing large text datasets. It classifies reviews as Positive, Negative, or Neutral and stores results in an SQLite database. It also compares execution performance using single processing, multithreading, and multiprocessing.
+The Parallel Text Processing Dashboard is a Streamlit-based web application designed to efficiently process and analyze large text datasets. It performs sentiment analysis using a rule-based approach and provides an interactive UI for uploading files, viewing results, searching keywords, and downloading reports.
 
-## Features
-- Weighted sentiment scoring
-- Minimum 100 reviews processed
-- SQLite database storage
-- Performance comparison:
-  - Single for-loop
-  - ThreadPoolExecutor
-  - Multiprocessing Pool
+🎯 Features
+📂 Upload multiple files (TXT, CSV, Excel)
+⚙️ Process large datasets efficiently
+😊 Sentiment Analysis (Positive / Negative / Neutral)
+📊 Interactive Dashboard (metrics & charts)
+🔍 Keyword Search functionality
+📥 Download results as CSV
+🧹 Clear uploaded data option
+⏱️ Processing time tracking
+📈 Performance metrics (speed, counts)
+🖥️ User-friendly and colorful UI
+🧠 How It Works
+User uploads text/CSV/Excel file(s)
+System extracts textual data automatically
+Each line is processed individually
+Sentiment score is calculated using rule-based logic
+Results are displayed in dashboard and charts
+📊 Sentiment Analysis Logic
+Positive words → add score
+Negative words → subtract score
+Final score determines sentiment:
+Score	Sentiment
+> 0	Positive
+< 0	Negative
+= 0	Neutral
+⚡ Processing Types
+Sequential Processing (current implementation)
+Parallel Processing (can be extended using multiprocessing)
+🧪 Edge Cases Handled
+❌ Empty input → shows “No data to process”
+⚠️ Invalid data → skipped safely
+🔁 Repeated words → counted multiple times
+📦 Large files → handled efficiently
+🛠️ Tech Stack
+Python 🐍
+Streamlit 🌐
+Pandas 📊
+Matplotlib 📈
+📂 Supported File Formats
+.txt
+.csv
+.xlsx
 
-## Sentiment Logic
-Each keyword has a weight.
-Score > 0 → Positive  
-Score < 0 → Negative  
-Score = 0 → Neutral  
+📈 Performance Metrics
+Processing Time
+Execution Speed (rows/sec)
+Sentiment Distribution
+Accuracy (estimated)
 
-## Database Structure
-Database: reviews.db  
-Table: reviews  
-
-Columns:
-- id (INTEGER PRIMARY KEY)
-- review_text (TEXT)
-- sentiment (TEXT)
-- score (INTEGER)
-
-
-## Concepts Used
-- File handling
-- Rule-based text processing
-- SQLite integration
-- Multithreading
-- Multiprocessing
-- Performance benchmarking
-
+ Future Enhancements
+ AI-based sentiment analysis (NLP models)
+ Multi-language support
+ Advanced analytics dashboard
